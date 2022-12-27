@@ -85,7 +85,7 @@ const Navbar = () => {
             <NavLink to="/login">Login</NavLink>
           </li>
           <li onClick={() => setTheme(!theme)}>
-            <button className="pl-4">
+            <button className=" p-2">
               {theme ? <FaRegMoon /> : <FaSun />}
             </button>
           </li>
