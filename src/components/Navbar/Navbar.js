@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { FaAlignRight, FaRegMoon, FaSun } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [theme, setTheme] = useState(false);
+  const { currentUser, logOut } = useAuth();
   return (
     <header className=" dark:bg-gray-800 bg-gray-400">
       <div className="container mx-auto flex justify-between items-center h-12 px-4">
@@ -33,10 +35,27 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/login" className="pl-4">
-                Login
+              <NavLink to="completed-task" className="pl-4">
+                Completed Tasks
               </NavLink>
             </li>
+            {currentUser ? (
+              <>
+                <li>
+                  <NavLink to="#" className="pl-4" onClick={logOut}>
+                    Logout
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/login" className="pl-4">
+                    Login
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li onClick={() => setTheme(!theme)}>
               <button className="pl-4">
                 {theme ? <FaRegMoon /> : <FaSun />}
@@ -80,6 +99,9 @@ const Navbar = () => {
           </li>
           <li className="p-2">
             <NavLink to="/my-task">My task</NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink to="/completed-task">Completed Tasks</NavLink>
           </li>
           <li className="p-2">
             <NavLink to="/login">Login</NavLink>
