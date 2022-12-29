@@ -4,6 +4,7 @@ import Main from "./layout/Main";
 import AddTask from "./pages/AddTask/AddTask";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
+import MyTask from "./pages/MyTask/MyTask";
 import Signup from "./pages/Signup/Signup";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/add-task" element={<AddTask />} />
+        <Route path="/my-task" element={<MyTask />} />
         <Route path="*" element="error pages" />
       </Route>
     </Routes>
