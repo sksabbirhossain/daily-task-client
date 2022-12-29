@@ -49,8 +49,8 @@ const UpdateTask = () => {
   };
   return (
     <div className="px-4 flex justify-center mt-4">
-      <div className=" bg-gray-200 w-3/4 p-4 rounded-lg shadow-md">
-        <div className="shadow-lg py-4 rounded-lg">
+      <div className="dark:bg-gray-700 bg-gray-200 w-3/4 p-4 rounded-lg shadow-md">
+        <div className="shadow-lg py-4 rounded-lg dark:bg-gray-800">
           <h3 className="text-center text-2xl">Update Task</h3>
         </div>
         <Form onSubmit={handleTaskUpdate}>
@@ -62,7 +62,7 @@ const UpdateTask = () => {
               name="title"
               type="text"
               rows="3"
-              className="border rounded-lg p-2"
+              className="border rounded-lg p-2  dark:border-gray-700 dark:bg-gray-500 dark:text-gray-100"
               defaultValue={task[0]?.task}
               required
             ></textarea>

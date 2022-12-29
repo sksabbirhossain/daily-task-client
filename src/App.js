@@ -14,7 +14,9 @@ import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   return (
-    <Routes>
+   
+    <div div className = " h-screen dark:bg-slate-700 dark:text-white " >
+      <Routes>
       <Route path="/" element={<Main />}>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -27,6 +29,7 @@ function App() {
         <Route path="*" element={<Error/>} />
       </Route>
     </Routes>
+    </div>
   );
 }
 

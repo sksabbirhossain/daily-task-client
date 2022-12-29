@@ -36,8 +36,8 @@ const AddTask = () => {
 
   return (
     <div className="px-4 flex justify-center mt-4">
-      <div className="dark:bg-slate-700 dark:text-white bg-gray-200 w-3/4 p-4 rounded-lg shadow-md">
-        <div className="shadow-lg py-4 rounded-lg">
+      <div className="dark:bg-gray-700 dark:text-white bg-gray-200 w-3/4 p-4 rounded-lg shadow-md">
+        <div className="shadow-lg py-4 rounded-lg dark:bg-gray-800" >
           <h3 className="text-center text-2xl">Add Task</h3>
         </div>
         <Form onSubmit={addTaskHandler}>
@@ -49,7 +49,7 @@ const AddTask = () => {
               name="title"
               type="text"
               rows="3"
-              className="border rounded-lg p-2"
+              className="border rounded-lg p-2 dark:border-gray-700 dark:bg-gray-500 dark:text-gray-100"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required

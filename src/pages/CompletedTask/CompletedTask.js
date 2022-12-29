@@ -11,6 +11,7 @@ const CompletedTask = () => {
   const { currentUser } = useAuth();
   const userid = currentUser?.uid;
 
+  var i = 1;
   //get all completed tasks
   useEffect(() => {
     axiosInstance
@@ -57,13 +58,13 @@ const CompletedTask = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="shadow-lg rounded-lg p-4 mt-4">
+      <div className="shadow-lg rounded-lg p-4 mt-4 dark:bg-gray-800">
         <h3 className="text-center text-xl">Completed Tasks</h3>
       </div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm">
-            <thead className="dark:bg-gray-700">
+            <thead className="dark:bg-gray-900">
               <tr className="text-left">
                 <th className="p-3">Invoice</th>
                 <th className="p-3">Task</th>
@@ -76,10 +77,10 @@ const CompletedTask = () => {
               {completedTask?.map((task) => (
                 <tr
                   key={task._id}
-                  className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900"
+                  className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-800"
                 >
                   <td className="p-3">
-                    <p>{1}</p>
+                    <p>{i++}</p>
                   </td>
                   <td className="p-3">
                     <p>{task.task}</p>

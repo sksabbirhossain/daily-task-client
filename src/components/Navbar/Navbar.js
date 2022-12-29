@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaAlignRight, FaRegMoon, FaSun } from "react-icons/fa";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const Navbar = () => {
@@ -22,11 +22,11 @@ const Navbar = () => {
     <header className=" dark:bg-gray-900 bg-gray-300 dark:text-white">
       <div className="container mx-auto flex justify-between items-center h-12 px-4">
         <div>
-          <NavLink to="/" className="">
+          <Link to="/" className="">
             <h2 className="text-2xl font-bold dark:text-[#00df9a]">
               Daily Task
             </h2>
-          </NavLink>
+          </Link>
         </div>
         <div className="">
           <ul className="md:flex hidden">

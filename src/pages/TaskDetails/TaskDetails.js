@@ -39,7 +39,6 @@ const TaskDetails = () => {
         taskId: id,
       });
       if (data.success) {
-        e.target.reset();
         toast.success("comment added successfull");
       } else {
         toast.error("something worng!");
@@ -70,7 +69,7 @@ const TaskDetails = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="shadow-lg rounded-lg p-4 mt-4">
+      <div className="shadow-lg rounded-lg p-4 mt-4 dark:bg-gray-800">
         <h3 className="text-center text-xl">Completed Task Details</h3>
       </div>
       <div className="sm:flex sm:flex-row gap-10 mt-5">
@@ -90,7 +89,7 @@ const TaskDetails = () => {
         </div>
       </div>
 
-      <div className="shadow-lg rounded-lg p-4 mt-10">
+      <div className="shadow-lg rounded-lg p-4 mt-10 dark:bg-gray-800">
         <h3 className="text-center text-xl">Comment</h3>
       </div>
       <div className=" mt-5">
@@ -109,7 +108,10 @@ const TaskDetails = () => {
       <div className="mt-5">
         <ul>
           {comment?.map((com) => (
-            <li className="mb-5 shadow-md p-3 rounded-lg" key={com._id}>
+            <li
+              className="mb-5 shadow-md p-3 rounded-lg dark:bg-gray-600"
+              key={com._id}
+            >
               <span className="mr-2">{i++}.</span>
               {com.comment}
             </li>
