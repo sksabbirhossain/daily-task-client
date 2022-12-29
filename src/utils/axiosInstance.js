@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:5000/api";
+// const baseURL = "http://localhost:5000/api";
+const baseURL = "https://daily-task-server-two.vercel.app/api";
 
 const headers = {
   "content-Type": "application/json",

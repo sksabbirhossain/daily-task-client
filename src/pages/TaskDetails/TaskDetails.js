@@ -10,7 +10,7 @@ import { axiosInstance } from "../../utils/axiosInstance";
 const TaskDetails = () => {
   const [task, setTask] = useState([]);
   const [commentValue, setCommentValue] = useState("");
-  const [comment, setComment] = useState([]);
+  const [allComment, setAllComment] = useState([]);
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
 
@@ -55,7 +55,8 @@ const TaskDetails = () => {
       .then((data) => {
         if (data.data.success) {
           setLoading(!loading);
-          setComment(data.data.data);
+
+          return setAllComment(data.data.data);
         } else {
           toast.error(data.data.message);
         }
@@ -64,8 +65,6 @@ const TaskDetails = () => {
         console.log(error);
       });
   }, [userid, loading, id]);
-
-  console.log(comment);
 
   return (
     <div className="container mx-auto px-4">
@@ -78,7 +77,7 @@ const TaskDetails = () => {
             className="max-w-[350px]"
             src={
               task[0]?.photourl
-                ? task[0].photourl
+                ? task[0]?.photourl
                 : "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"
             }
             alt="..."
@@ -107,7 +106,7 @@ const TaskDetails = () => {
 
       <div className="mt-5">
         <ul>
-          {comment?.map((com) => (
+          {allComment?.map((com) => (
             <li
               className="mb-5 shadow-md p-3 rounded-lg dark:bg-gray-600"
               key={com._id}
