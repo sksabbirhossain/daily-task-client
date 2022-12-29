@@ -39,6 +39,7 @@ const TaskDetails = () => {
         taskId: id,
       });
       if (data.success) {
+        e.target.reset();
         toast.success("comment added successfull");
       } else {
         toast.error("something worng!");

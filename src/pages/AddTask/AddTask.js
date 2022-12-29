@@ -20,7 +20,7 @@ const AddTask = () => {
       const { data } = await axiosInstance.post("add-task", {
         task: title,
         photourl: photo,
-        userId: currentUser.uid,
+        userId: currentUser?.uid,
         status: false,
       });
       if (data.success) {
@@ -36,7 +36,7 @@ const AddTask = () => {
 
   return (
     <div className="px-4 flex justify-center mt-4">
-      <div className=" bg-gray-200 w-3/4 p-4 rounded-lg shadow-md">
+      <div className="dark:bg-slate-700 dark:text-white bg-gray-200 w-3/4 p-4 rounded-lg shadow-md">
         <div className="shadow-lg py-4 rounded-lg">
           <h3 className="text-center text-2xl">Add Task</h3>
         </div>

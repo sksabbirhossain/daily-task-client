@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaAlignRight, FaRegMoon, FaSun } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [theme, setTheme] = useState(false);
   const { currentUser, logOut } = useAuth();
+  const navigate = useNavigate();
+  //logout
+  const signOut = () => {
+    navigate("/");
+    logOut();
+  };
+  // change theme function
+  useEffect(() => {
+    document.body.className = theme ? "dark" : "";
+  }, [theme]);
+
   return (
-    <header className=" dark:bg-gray-800 bg-gray-400">
+    <header className=" dark:bg-gray-900 bg-gray-300 dark:text-white">
       <div className="container mx-auto flex justify-between items-center h-12 px-4">
         <div>
           <NavLink to="/" className="">
@@ -42,7 +53,7 @@ const Navbar = () => {
             {currentUser ? (
               <>
                 <li>
-                  <NavLink to="#" className="pl-4" onClick={logOut}>
+                  <NavLink to="#" className="pl-4" onClick={signOut}>
                     Logout
                   </NavLink>
                 </li>
@@ -103,9 +114,23 @@ const Navbar = () => {
           <li className="p-2">
             <NavLink to="/completed-task">Completed Tasks</NavLink>
           </li>
-          <li className="p-2">
-            <NavLink to="/login">Login</NavLink>
-          </li>
+          {currentUser ? (
+            <>
+              <li>
+                <NavLink to="#" className="p-2" onClick={signOut}>
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login" className="p-2">
+                  Login
+                </NavLink>
+              </li>
+            </>
+          )}
           <li onClick={() => setTheme(!theme)}>
             <button className=" p-2">
               {theme ? <FaRegMoon /> : <FaSun />}

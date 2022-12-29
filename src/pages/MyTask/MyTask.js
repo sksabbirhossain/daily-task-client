@@ -9,7 +9,7 @@ const MyTask = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
-  const userid = currentUser.uid;
+  const userid = currentUser?.uid;
 
   //get my task by user id
   useEffect(() => {

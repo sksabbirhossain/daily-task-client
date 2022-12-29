@@ -9,7 +9,7 @@ const CompletedTask = () => {
   const [completedTask, setCompletedTask] = useState([]);
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
-  const userid = currentUser.uid;
+  const userid = currentUser?.uid;
 
   //get all completed tasks
   useEffect(() => {
