@@ -90,7 +90,9 @@ const CompletedTask = () => {
                     </button>
                   </td>
                   <td className="p-3 text-left">
-                    <button>Details</button>
+                    <Link to={`/completed-task/details/${task._id}`}>
+                      <button>Details</button>
+                    </Link>
                   </td>
                   <td className="p-3 text-left">
                     <p

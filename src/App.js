@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import MyTask from "./pages/MyTask/MyTask";
 import Signup from "./pages/Signup/Signup";
+import TaskDetails from "./pages/TaskDetails/TaskDetails";
 import UpdateTask from "./pages/UpdateTask/UpdateTask";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/my-task" element={<MyTask />} />
         <Route path="/my-task/update/:id" element={<UpdateTask />} />
         <Route path="/completed-task" element={<CompletedTask />} />
+        <Route path="/completed-task/details/:id" element={<TaskDetails />} />
         <Route path="*" element="error pages" />
       </Route>
     </Routes>
