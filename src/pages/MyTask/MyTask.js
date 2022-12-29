@@ -10,6 +10,8 @@ const MyTask = () => {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
   const userid = currentUser.uid;
+
+  //get my task by user id
   useEffect(() => {
     axiosInstance
       .get(`my-task?userid=${userid}`)
@@ -18,6 +20,23 @@ const MyTask = () => {
         console.log(error);
       });
   }, [userid, loading]);
+
+  //completed task
+  const completeTask = (id) => {
+    axiosInstance
+      .patch(`my-task/complete/${id}`)
+      .then((data) => {
+        if (data.data.success) {
+          toast.success(data.data.message);
+          setLoading(!loading);
+        } else {
+          toast.error(data.data.message);
+        }
+      })
+      .catch((err) => {
+        toast.err(err.message);
+      });
+  };
 
   //delete task
   const deleteTask = (id) => {
@@ -66,7 +85,9 @@ const MyTask = () => {
                     <p>{task.task}</p>
                   </td>
                   <td className="p-3 text-left">
-                    <button>Completed</button>
+                    <button onClick={() => completeTask(task._id)}>
+                      Completed
+                    </button>
                   </td>
                   <td className="p-3 text-left">
                     <p className="text-green-900 cursor-pointer">
